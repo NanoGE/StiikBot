@@ -29,29 +29,36 @@ namespace WindowsFormsApp3
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.fill = new System.Windows.Forms.Button();
+            this.generator = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(102, 12);
+            this.webBrowser1.Location = new System.Drawing.Point(94, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(686, 399);
+            this.webBrowser1.Size = new System.Drawing.Size(708, 449);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.Url = new System.Uri("https://stiick.xyz//register", System.UriKind.Absolute);
             // 
             // fill
             // 
-            this.fill.Location = new System.Drawing.Point(12, 22);
+            this.fill.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fill.Location = new System.Drawing.Point(0, 0);
             this.fill.Name = "fill";
-            this.fill.Size = new System.Drawing.Size(75, 23);
+            this.fill.Size = new System.Drawing.Size(88, 449);
             this.fill.TabIndex = 1;
-            this.fill.Text = "Fill";
+            this.fill.Text = "RUN!";
             this.fill.UseVisualStyleBackColor = true;
             this.fill.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // generator
+            // 
+            this.generator.Interval = 5000;
             // 
             // Form1
             // 
@@ -61,7 +68,7 @@ namespace WindowsFormsApp3
             this.Controls.Add(this.fill);
             this.Controls.Add(this.webBrowser1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Stiik Account Generator";
             this.ResumeLayout(false);
 
         }
@@ -70,6 +77,7 @@ namespace WindowsFormsApp3
 
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button fill;
+        private System.Windows.Forms.Timer generator;
     }
 }
 
