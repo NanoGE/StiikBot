@@ -14,18 +14,22 @@ namespace WindowsFormsApp3
 
         string username, email, password;
         public int lines, maxline = 0, sline;
+
+        
+
+        public int pwlength = 12;
         private void Form1_Load(object sender, EventArgs e)
         {
             webBrowser1.Navigate("https://stiick.xyz//register");
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             generator.Start();
 
         }
-        private void generator_Tick(object sender, EventArgs e)
+        private void generator_Tick_1(object sender, EventArgs e)
         {
             lines = 0;
 
@@ -61,6 +65,7 @@ namespace WindowsFormsApp3
             {
                 lines++;
             }
+            lines--;
             maxline = lines;
 
 
@@ -77,30 +82,22 @@ namespace WindowsFormsApp3
             }
 
             webBrowser1.Document.GetElementById("email").SetAttribute("value", email);
-            lines = 0;
-            StreamReader sr_password = new StreamReader("data\\password.txt");
+            
 
-            while (sr_password.ReadLine() != null)
+
+            int number = 0;
+            string password = "abcdefghijklmnopqrstuvwxyz12345679", newpw = "";
+            char letter;
+
+            while (i < pwlength)
             {
-                lines++;
-            }
-            maxline = lines;
-
-
-            sline = rnd.Next(1, maxline);
-
-            StreamReader sr_password2 = new StreamReader("data\\password.txt");
-
-            i = 0;
-
-            while (i < sline)
-            {
+                number = rnd.Next(1, password.Length - 1);
+                letter = password[number];
+                newpw = newpw + letter;
                 i++;
-                email = sr_password2.ReadLine();
             }
+
             webBrowser1.Document.GetElementById("password").SetAttribute("value", password);
-
-
         }
 
     }
